@@ -1,0 +1,10 @@
+name: MobShuffle
+version: ${project.version}
+main: wallmc.net.mobshuffle.MobShuffle
+api-version: 1.18
+commands:
+  mobshuffle:
+    permission: mobshuffle.perms
+permissions:
+  mobshuffle.perms:
+    default: op
