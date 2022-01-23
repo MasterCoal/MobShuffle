@@ -5,6 +5,8 @@ api-version: 1.18
 commands:
   mobshuffle:
     permission: mobshuffle.perms
+  mobshuffleforce:
+    permission: mobshuffle.perms
 permissions:
   mobshuffle.perms:
     default: op

@@ -29,6 +29,7 @@ public final class MobShuffle extends JavaPlugin implements CommandExecutor {
     public void onEnable() {
         Bukkit.getConsoleSender().sendMessage( ChatColor.DARK_GRAY + "[" + ChatColor.AQUA + "MobShuffle" + ChatColor.DARK_GRAY + "]" + ChatColor.GREEN + " Enabled!");
         this.getCommand("mobshuffle").setExecutor(this);
+        this.getCommand("mobshuffleforce").setExecutor(this);
         AllMobs = Arrays.asList(Arrays.stream(EntityType.values()).toArray(EntityType[]::new));
         voidEntities.add(EntityType.FISHING_HOOK);
         voidEntities.add(EntityType.AREA_EFFECT_CLOUD);
@@ -127,6 +128,14 @@ public final class MobShuffle extends JavaPlugin implements CommandExecutor {
                         runnableTaskID = 0;
                         player.sendMessage(ChatColor.RED + "Mob Shuffle has stopped!");
                     }
+                }
+            }
+        } else if (command.getName().equals("mobshuffleforce")) {
+            if (sender instanceof Player) {
+                Player player = (Player) sender;
+                if (player.hasPermission("mobshuffle.perms")) {
+                    player.sendMessage(ChatColor.GREEN + "Mob Shuffle has started!");
+                    shuffle();
                 }
             }
         }
